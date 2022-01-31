@@ -1,0 +1,50 @@
+%$A
+%$B
+%$C
+%$D
+%$E
+%$F
+
+`` 2^31
+   A
+   \#31\
+  /----*
+  >#2-{^}\
+         B
+
+`` 2^16
+   C
+   \#16\
+  /----*
+  >#2-{^}\
+         D
+
+`` Floor function: x − (x mod 1)
+`` Used to "remove" decimal places from divided numbers.
+   /#1\  /F
+ E-*-{%}[-]
+   \-----/
+
+`` Create range of psudeo-random numbers with LCG (Linear Congruential Generator) using the Microsoft Formula
+`` within range min-max (inclusive).
+
+`` Microsoft Formula:
+`` seed n + 1 = 214013 * seed n + 2531011 (mod 2^31)
+`` random_number n = seed n / 2^16
+
+`` where ms_rand() is the Microsoft Formula:
+`` n = ms_rand() % (max + 1 - min) + min
+
+                   /------\
+                   |/-\   |
+                   || A   C
+                   || |   |
+  .>#214013>\      || B   D     
+   |  .-#0>{*}{+}--+*{%}*{/}-E-F-{%}{+}-$# `` Prints numbers in range 1-26.
+   \------*----+---++---/         |  |
+   /------/    |   \/             |  |
+  .>#2531011---/             /-{-}/  |
+                 .>#1--------+--*----/
+                /-*----------+--/
+                |.>#26{+}----/
+               .>---#1-/
